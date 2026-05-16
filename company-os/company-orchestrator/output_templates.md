@@ -1,0 +1,486 @@
+# Orchestrator Output Templates
+
+Reusable templates for all standard orchestrator outputs.
+
+---
+
+## 1. RESULT CARD Template (Full)
+
+```
+╔══════════════════════════════════════════════════════════╗
+║                      [RESULT CARD]                       ║
+╠══════════════════════════════════════════════════════════╣
+║ Situation:                                               ║
+║ [2-3 sentence summary of the task and context. What     ║
+║  was asked, what triggered this deliberation, and what  ║
+║  the key tension or decision point is.]                 ║
+╠══════════════════════════════════════════════════════════╣
+║ Agents involved:                                         ║
+║ - [AGENT_NAME] — [Role]                                  ║
+║ - [AGENT_NAME] — [Role]                                  ║
+║ - [AGENT_NAME] — [Role]                                  ║
+╠══════════════════════════════════════════════════════════╣
+║ Agent opinions:                                          ║
+║ - [AGENT_NAME] ([X%]): [1-sentence position summary]   ║
+║ - [AGENT_NAME] ([X%]): [1-sentence position summary]   ║
+║ - [AGENT_NAME] ([X%]): [1-sentence position summary]   ║
+╠══════════════════════════════════════════════════════════╣
+║ Disagreements:                                           ║
+║ ⚡ [Topic]: [AGENT_A] says X; [AGENT_B] says Y          ║
+║ [OR: NONE — all agents in agreement]                    ║
+╠══════════════════════════════════════════════════════════╣
+║ Recommendation:                                          ║
+║ [Clear, specific, actionable recommendation. Use a      ║
+║  numbered list if multiple steps. State the reasoning   ║
+║  in 1-2 sentences. Do not hedge unless there is a      ║
+║  genuine reason to.]                                    ║
+╠══════════════════════════════════════════════════════════╣
+║ Risk level: [LOW / MEDIUM / HIGH / CRITICAL]             ║
+╠══════════════════════════════════════════════════════════╣
+║ Confidence: [X%]                                         ║
+║ [If low: explain what would raise it]                   ║
+╠══════════════════════════════════════════════════════════╣
+║ Human approval required: [YES / NO]                      ║
+║ Reason: [Specific trigger from the approval checklist,  ║
+║  or "No trigger met — agents may proceed"]              ║
+╠══════════════════════════════════════════════════════════╣
+║ Next actions:                                            ║
+║ 1. [Action] → Owner: [Name/Role] → By: [Date/Trigger]  ║
+║ 2. [Action] → Owner: [Name/Role] → By: [Date/Trigger]  ║
+║ 3. [Action] → Owner: [Name/Role] → By: [Date/Trigger]  ║
+╠══════════════════════════════════════════════════════════╣
+║ Owner:                                                   ║
+║ [Single person or role responsible for seeing this      ║
+║  through to completion]                                 ║
+╠══════════════════════════════════════════════════════════╣
+║ Deadline:                                                ║
+║ [Date, or time-based trigger ("before next board       ║
+║  meeting", "within 48 hours")]                          ║
+╠══════════════════════════════════════════════════════════╣
+║ Data needed:                                             ║
+║ - [Specific data point that would increase confidence] ║
+║ - [OR: NONE — sufficient information available]         ║
+╚══════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 2. Daily Briefing Template
+
+```
+DAILY BRIEFING — [DATE] [MORNING / EOD]
+═══════════════════════════════════════
+
+EXECUTIVE SUMMARY
+─────────────────
+[3-4 sentence summary of the most important things happening today.
+ Written for a busy founder who has 30 seconds.]
+
+TOP PRIORITIES TODAY
+────────────────────
+1. [Priority] → Owner: [Name] → Status: [In Progress / Blocked / Not Started]
+2. [Priority] → Owner: [Name] → Status: [In Progress / Blocked / Not Started]
+3. [Priority] → Owner: [Name] → Status: [In Progress / Blocked / Not Started]
+
+ITEMS NEEDING YOUR ATTENTION
+─────────────────────────────
+⛔ [Item requiring human decision or approval]
+⛔ [Item requiring human decision or approval]
+[OR: None today — clear to proceed]
+
+DOMAIN STATUS
+─────────────
+
+PRODUCT & ENGINEERING
+• [Status bullet]
+• [Status bullet]
+• Blockers: [list or NONE]
+
+SALES & GROWTH
+• [Status bullet]
+• [Status bullet]
+• Pipeline: [summary]
+
+CUSTOMERS
+• [Status bullet]
+• Churn risk: [HIGH / MEDIUM / LOW]
+• Open tickets: [count and severity summary]
+
+FINANCE
+• Runway: [X months]
+• Burn vs plan: [on track / over / under]
+• Notable expense: [if any]
+
+PEOPLE
+• Open roles: [count]
+• Upcoming reviews or events: [list]
+
+RISKS FLAGGED
+──────────────
+⚡ [Risk]: [Brief description] — [Severity] — Owner: [Name]
+⚡ [Risk]: [Brief description] — [Severity] — Owner: [Name]
+[OR: No new risks flagged]
+
+WINS
+────
+✓ [Win from yesterday or this week]
+✓ [Win]
+
+TOMORROW'S PRIORITIES (preview)
+────────────────────────────────
+1. [Next priority]
+2. [Next priority]
+
+Generated by: [THE CONDUCTOR | ORCHESTRATOR | DAILY-BRIEFING | —]
+```
+
+---
+
+## 3. Incident Response Template
+
+```
+INCIDENT REPORT
+═══════════════
+Incident ID: INC-[DATE]-[SEQUENCE]
+Status: [ACTIVE / MONITORING / RESOLVED]
+Severity: [P0 — Complete Outage / P1 — Major Degradation / P2 — Partial / P3 — Minor]
+Started: [timestamp]
+Detected by: [who/what found it]
+Duration: [ongoing or X hours Y minutes]
+
+BLAST RADIUS
+────────────
+Customers affected: [count or percentage]
+Features affected: [list]
+Data at risk: [YES — describe / NO]
+SLA breached: [YES / NO]
+
+WHAT IS BROKEN
+──────────────
+[Technical description of the failure, written plainly]
+
+ROOT CAUSE HYPOTHESIS
+─────────────────────
+[Engineering agent's best current understanding]
+Confidence in root cause: [X%]
+⚠️ UNVERIFIED: [any aspects still being investigated]
+
+TIMELINE
+────────
+[HH:MM] — [Event]
+[HH:MM] — [Event]
+[HH:MM] — [Response action taken]
+[HH:MM] — [Event]
+
+REMEDIATION PLAN
+────────────────
+Immediate actions (in progress):
+1. [Action] → Owner: [Name] → ETA: [time]
+2. [Action] → Owner: [Name] → ETA: [time]
+
+Next steps:
+1. [Action] → Owner: [Name] → ETA: [time]
+
+Rollback plan: [description or "not applicable"]
+
+CUSTOMER COMMUNICATION
+──────────────────────
+Status page updated: [YES / NO / PENDING]
+Customer notification sent: [YES / NO — if YES, by whom, to whom]
+Draft customer message:
+"""
+[Draft message — REQUIRES HUMAN APPROVAL before sending]
+"""
+
+OPEN QUESTIONS
+──────────────
+1. [Unresolved question]
+2. [Unresolved question]
+
+HUMAN APPROVAL NEEDED
+─────────────────────
+⛔ [What the human must decide or approve before next action]
+
+Next update: [time]
+Incident commander: [Name]
+
+Generated by: [THE CONDUCTOR | ORCHESTRATOR | INCIDENT-RESPONSE | —]
+```
+
+---
+
+## 4. Release Readiness Checklist Template
+
+```
+RELEASE READINESS CHECKLIST
+════════════════════════════
+Release: [Feature/Version name]
+Target date: [date]
+Release type: [MAJOR / MINOR / PATCH / HOTFIX]
+
+ENGINEERING READINESS
+─────────────────────
+[ ] All acceptance criteria met
+[ ] Unit tests passing (coverage: [X%])
+[ ] Integration tests passing
+[ ] Performance tests passing (no regressions > [X%])
+[ ] Load test completed (target: [X] req/s)
+[ ] Code reviewed and approved
+[ ] Deployment runbook written
+[ ] Rollback procedure documented and tested
+[ ] Feature flags configured (if applicable)
+[ ] Database migrations tested on staging
+Engineering GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+QUALITY ASSURANCE
+─────────────────
+[ ] QA sign-off on all acceptance criteria
+[ ] Regression test suite passed
+[ ] Known issues list reviewed
+[ ] Edge cases tested
+[ ] Accessibility check completed (if user-facing)
+[ ] Browser/device compatibility checked (if user-facing)
+Known open issues:
+- [Issue]: [Severity] — [Will fix in / Accepted risk]
+QA GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+PRODUCT SIGN-OFF
+────────────────
+[ ] Product requirements met
+[ ] Demo completed with PM sign-off
+[ ] User-facing copy reviewed
+[ ] Help documentation updated
+[ ] Changelog entry written
+Product GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+SECURITY REVIEW
+───────────────
+[ ] Security review completed
+[ ] No CRITICAL or HIGH vulnerabilities open
+[ ] PII handling reviewed (if applicable)
+[ ] Auth and access controls verified
+Security GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+OPERATIONS READINESS
+────────────────────
+[ ] Monitoring configured (alerts, dashboards)
+[ ] On-call runbook updated
+[ ] Deployment window confirmed
+[ ] Staging deployment successful
+[ ] Production deployment plan reviewed
+Operations GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+CUSTOMER READINESS
+──────────────────
+[ ] Customer success briefed
+[ ] Support team briefed and trained
+[ ] Customer communication prepared (if needed)
+[ ] Beta users notified (if applicable)
+Customer Success GO/NO-GO: [GO / NO-GO]
+Blocker (if NO-GO): [description]
+
+FINAL DECISION
+──────────────
+Overall GO/NO-GO: [GO / NO-GO]
+Blocking issues: [list or NONE]
+⛔ HUMAN APPROVAL REQUIRED for production deployment.
+Human approval: [PENDING / APPROVED by Name on Date]
+
+Generated by: [THE CONDUCTOR | ORCHESTRATOR | RELEASE-READINESS | —]
+```
+
+---
+
+## 5. Decision Record Template
+
+```
+DECISION RECORD
+═══════════════
+Decision ID: DR-[DATE]-[SEQUENCE]
+Date: [date]
+Task type: [workflow type]
+Decision: [One-sentence statement of what was decided]
+
+CONTEXT
+───────
+[What situation prompted this decision. 2-3 sentences.]
+
+OPTIONS CONSIDERED
+──────────────────
+Option A: [description]
+  Pros: [bullet list]
+  Cons: [bullet list]
+  Agent support: [which agents favored this]
+
+Option B: [description]
+  Pros: [bullet list]
+  Cons: [bullet list]
+  Agent support: [which agents favored this]
+
+[Additional options as needed]
+
+DECISION MADE
+─────────────
+[Which option was chosen and why. 2-4 sentences of rationale.]
+
+AGENTS INVOLVED
+───────────────
+[List with their positions and confidence levels]
+
+DISAGREEMENTS AT TIME OF DECISION
+───────────────────────────────────
+[Any unresolved agent disagreements, or NONE]
+
+CONFIDENCE: [X%]
+RISK LEVEL: [LOW / MEDIUM / HIGH / CRITICAL]
+HUMAN APPROVED: [YES by Name / NO — below human approval threshold]
+
+ASSUMPTIONS
+───────────
+[List all ⚠️ ASSUMPTIONS made — these should be validated]
+
+REVIEW DATE
+───────────
+[When should this decision be revisited? What trigger would cause earlier review?]
+
+OUTCOME (filled in later)
+─────────────────────────
+[After the decision plays out: was it correct? What actually happened?]
+
+Archived by: [THE CONDUCTOR | ORCHESTRATOR | —]
+```
+
+---
+
+## 6. Communication Graph ASCII Template
+
+```
+COMMUNICATION FLOW
+══════════════════
+Task: [TASK_TYPE] — [Brief description]
+Agents: [count] active
+
+[HUMAN INPUT] → [ORCHESTRATOR]
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+    [AGENT_A]    [AGENT_B]   [AGENT_C]
+                              [AGENT_D] ← add row for 4+
+          │           │           │
+          └─────►[DEBATE ARENA]◄──┘
+                      │
+               [CHALLENGE ROUND]
+                      │
+               [ORCHESTRATOR SYNTHESIS]
+                      │
+               [HUMAN APPROVAL GATE?]
+                      │
+                [RESULT CARD]
+
+Legend:
+→  Task or instruction flow
+▼  Agent activated
+│  Processing / analysis
+◄► Cross-agent communication
+```
+
+For more complex multi-agent interactions, use:
+
+```
+COMMUNICATION FLOW (Extended)
+══════════════════════════════
+[HUMAN INPUT]
+      │
+[ORCHESTRATOR] ──────────────────────────────────┐
+      │                                          │
+      ├──► [PRIMARY AGENT A]                     │
+      │         │                                │
+      │         ├──@mentions──► [AGENT B]        │
+      │         │                    │           │
+      │         └──@mentions──► [AGENT C]        │
+      │                              │           │
+      ├──► [PRIMARY AGENT D] ◄───────┘           │
+      │                                          │
+      └──────────────────────────────────────────┘
+                      │
+               [ORCHESTRATOR SYNTHESIS]
+```
+
+---
+
+## 7. Agent Message Template (MiroFish Style)
+
+```
+[AGENT_NAME | ROLE | ROUND X | CONFIDENCE Y%]
+────────────────────────────────────────────
+
+[Main analysis or message content — 100-300 words depending on round]
+
+[In Round 2 or 3, include @mentions:]
+@[Other Agent Name]: [Specific response to their point]
+
+POSITION: [One sentence — clear stance]
+CONCERNS: 
+• [Concern 1]
+• [Concern 2]
+ASSUMPTIONS: 
+⚠️ [Assumption 1 — what would change if this is wrong]
+DATA NEEDED:
+• [What information would increase confidence]
+```
+
+For devil's advocate messages:
+
+```
+[AGENT_NAME | ROLE | ROUND 3 — STEELMAN | CONFIDENCE Y%]
+─────────────────────────────────────────────────────────
+
+Steelmanning the opposing view:
+[2-4 sentences arguing the strongest version of the opposing position]
+
+After steelmanning:
+[Agent's actual final position — may or may not have shifted]
+
+Final confidence: [X%]
+[If confidence changed from Round 1: explain why]
+```
+
+---
+
+## 8. Lesson Learned Entry Template
+
+```
+## [DATE] — [Task Type]: [Brief Task Title]
+
+**Task summary:** [1-2 sentences describing what was asked and decided]
+
+**What worked well:**
+- [Bullet: something in the deliberation that produced good signal]
+- [Bullet: an agent interaction that was productive]
+
+**What didn't work:**
+- [Bullet: where the process broke down or was slow]
+- [Bullet: any agent that gave poor-quality analysis]
+
+**What we'd do differently:**
+- [Bullet: actionable process improvement]
+- [Bullet: agent selection change, question framing, etc.]
+
+**Confidence calibration:**
+- Started at: [X%]
+- Ended at: [Y%]
+- Actual outcome matched recommendation: [YES / NO / TOO EARLY TO TELL]
+- Calibration note: [Were agents appropriately uncertain? Over/under-confident?]
+
+**Human approval triggered:** [YES — trigger: [rule] / NO]
+
+**Key lesson:**
+[1-2 sentences — the single most important takeaway for future similar tasks]
+
+**Tags:** [task-type], [agent-names], [topic-tags]
+```
